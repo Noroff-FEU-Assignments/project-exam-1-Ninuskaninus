@@ -1,0 +1,89 @@
+@import url("https://use.typekit.net/lrw7ati.css");
+
+:root {
+    --matteBlack: #212121;
+    --brightPink: #da6fd5;
+    --brightBlue: #9BDBFC;
+    --brightYellow: #FAD300;
+    --brightGreen: #A7BC9B;
+    --brightBrown: #BC856F;
+    --brightOrange: #C0A670;
+    --brightGray: #7B7B7B;
+    --darkBlue: #569BD5;
+    --darkBlack: #151515;
+    --pearlWhite: #fafafa;
+    --errorRed: #cc2e2e;    
+
+    --regularCourier:   "courier-std", monospace;
+                        font-weight: 300;
+                        font-style: normal;
+                        font-size: 20px;
+    --regularArial:     Arial, Helvetica, sans-serif;
+                        font-weight: 300;
+                        font-style: normal;
+                        font-size: 20px;
+}
+
+#pink{
+    color: var(--brightPink);
+}
+
+#yellow{
+    color: var(--brightYellow);
+}
+
+h4{
+    color: var(--brightBlue);
+    line-height: 20px;
+    margin-bottom: 5px;
+    margin-top: 60px;
+}
+
+
+
+body{
+    background-color: var(--matteBlack);
+    font-family: var(--regularCourier);
+    width: 100%;
+    padding-left: 138px;
+    padding-right: 138px;
+    margin: 0;
+}
+
+
+nav{
+    background-color: var(--matteBlack);
+    width: 222px;
+    height: 100%;
+    margin-left: -138px;
+    padding-left: 30px;
+    padding-top: 30px;
+    position: fixed;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+nav img{
+    max-width: 150px;
+    max-height: 50px;
+}
+
+nav a{
+    font-size: 16px;
+    color: var(--brightBlue);
+    text-decoration: none;
+    line-height: 25px;
+}
+
+nav a:hover{
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.navContent{
+    display: flex;
+    flex-direction: column;
+}
