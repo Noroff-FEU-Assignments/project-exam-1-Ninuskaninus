@@ -5,6 +5,10 @@
     padding: 0;
 }
 
+*:focus{
+    outline: none;
+}
+
 
 :root {
     --matteBlack: #212121;
@@ -55,7 +59,12 @@ h4{
     margin-top: 60px;
 }
 
-
+h6{
+    font-family: var(--regularArial);
+    font-size: 16px;
+    color: var(--pearlWhite);
+    font-style: bold;
+}
 
 body{
     background-color: var(--matteBlack);
@@ -66,7 +75,6 @@ body{
 
 main{
     margin-left: 252px;
-    
 }
 
 nav{
@@ -129,11 +137,16 @@ nav a:hover{
 }
 
 .searchSection{
-    padding: 20px;
     justify-content: center;
-    width: auto;
     display: flex;
     flex-direction: row;
+    padding: 50px
+}
+
+.searchSection form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .searchSection label{
@@ -142,9 +155,11 @@ nav a:hover{
 
 .searchSection input{
     background-color: var(--darkBlack);
+    color: var(--pearlWhite);
+    font-family: var(--regularCourier);
     border-style: none;
     height: 50px;
-    width: 700px;
+    width: 80%;
     border-radius: 5px;
     padding: 0 10px 0 10px;
 }
@@ -155,8 +170,8 @@ nav a:hover{
     font-family: var(--regularCourier);
 }
 
-.searchSection input:active{
-    border-color: var(--brightBlue);
+.searchSection input:focus{
+    border-color: var(--brightPink);
     border-style: solid;
 }
 
@@ -168,11 +183,130 @@ nav a:hover{
     border-style: none;
     font-family: var(--regularCourier);
     font-weight: 700;
+    font-size: 20px;
     color: var(--darkBlack);
     background-color: var(--brightPink);
+    margin-left: 20px;
 }
 
 .searchSection button:hover{
     background-color: var(--brightYellow);
     cursor: pointer;
+}
+
+.carouselSection{
+    padding: 0px 60px 30px 60px;
+}
+
+
+.carouselHead{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.buttonContainer{
+    display: flex;
+    
+}
+
+.carouselHead h5{
+    color: var(--brightBlue);
+    font-weight: 400;
+    align-self: flex-start;
+}
+
+.carouselHead button {
+    height: 15px;
+    background-color: transparent;
+    border: none;  
+    margin-left: 20px;
+}
+
+
+
+.arrow{
+    height: 15px;
+}
+
+
+.carouselHead button:hover{
+    cursor: pointer;
+}
+
+.carousel{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-items: stretch;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+.carouselItem{
+    width: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.carouselImg {
+  max-width: 100%;
+  min-height: 250px;
+  background-size:  cover;
+  margin-bottom: 10px;
+  background-image: url(https://wpsite.codecrush.no/wp-content/uploads/2023/04/1677583559900-1.png);
+  background-position: top;
+}
+
+
+.carouselCategories{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 250px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.carouselCategories h5{
+    margin-right: 10px;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+.carouselItem:hover{
+    background-color: var(--darkBlack);
+    cursor: pointer;
+}
+
+.carouselScroll{
+    display: flex;
+    flex-direction: row;
+    margin-left: 400px;
+    margin-top: 20px;
+}
+
+.scrollCircle{
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    border-color: var(--brightPink);
+    border-width: 2px;
+    border-style: solid;
+    margin-right: 10px;
+}
+
+#filled{
+    background-color: var(--brightPink);
+}
+
+
+@media screen and (max-width: 740px) {
+    nav{
+        display: none;
+    }
+
+    main{
+        margin-left: 0;
+    }
 }
