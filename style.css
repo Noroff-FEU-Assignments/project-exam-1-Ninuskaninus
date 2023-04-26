@@ -171,7 +171,7 @@ nav a:hover{
 }
 
 .searchSection label{
-    display: none;
+    color: var(--matteBlack);
 }
 
 .searchSection input{
