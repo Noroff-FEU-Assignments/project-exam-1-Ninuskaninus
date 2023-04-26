@@ -47,10 +47,15 @@ Promise.all([fetchPosts(), fetchCategories()])
       postContainer.appendChild(postTitle);
       
       carouselContainer.appendChild(postContainer);
+
+      
+
     }
 
     const carouselSection = document.querySelector(".carouselSection");
     carouselSection.appendChild(carouselContainer);
+    const carouselScroll = document.querySelector(".carouselScroll");
+    carouselSection.appendChild(carouselScroll);
 
   })
   .catch(error => console.error(error));

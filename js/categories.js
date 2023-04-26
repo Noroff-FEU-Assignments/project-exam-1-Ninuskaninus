@@ -5,6 +5,8 @@ async function fetchData() {
       const categories = data
         .filter(category => category.id !== 1) 
         .map(({ id, name }) => ({ id, name }));
+
+    
       const links = document.querySelectorAll('a#pink')
       links.forEach((link, index) => {
         link.textContent = categories[index].name
