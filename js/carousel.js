@@ -66,14 +66,9 @@ Promise.all([fetchPosts(), fetchCategories()])
       scrollCircle.classList.add("scrollCircle");
       carouselScroll.appendChild(scrollCircle);
 }
-
-
-    carouselContainer.appendChild(carouselHead);
-    carouselContainer.appendChild(carouselDiv);
-    carouselContainer.appendChild(carouselScroll);
-
-    
-    
+      carouselContainer.appendChild(carouselHead);
+      carouselContainer.appendChild(carouselDiv);
+      carouselContainer.appendChild(carouselScroll);
 
     for (let i = 0; i < 3; i++) {
       const post = allPosts[i];
@@ -104,8 +99,8 @@ Promise.all([fetchPosts(), fetchCategories()])
       carouselDiv.appendChild(postContainer);
     }
 
-    
-    
 
   })
   .catch(error => console.error(error));
+
+

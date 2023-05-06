@@ -212,7 +212,7 @@ nav a:hover{
     border-style: none;
     font-family: var(--regularCourier);
     font-weight: 700;
-    font-size: 20px;
+    font-size: 16px;
     color: var(--darkBlack);
     background-color: var(--brightPink);
     margin-left: 20px;
@@ -264,10 +264,11 @@ nav a:hover{
 .carousel{
     display: grid;
     grid-template-columns: auto auto auto;
+    grid-template-rows: none;
+    overflow: hidden;
     justify-items: stretch;
     margin-left: -20px;
     margin-right: -20px;
-    
 }
 
 .carouselItem{
@@ -275,8 +276,8 @@ nav a:hover{
     padding: 20px;
     box-sizing: border-box;
     text-decoration: none;
-    
 }
+
 
 .carouselImg {
   max-width: 100%;
@@ -330,6 +331,7 @@ nav a:hover{
 #filled{
     background-color: var(--brightPink);
 }
+
 
 .indexInformation{
     padding: 0 60px 0 60px;
@@ -416,6 +418,7 @@ nav a:hover{
     padding: 10px 10px 10px 10px;
     border-radius: 5px;
     color: var(--brightPink);
+    font-family: var(--regularCourier);
 }
 
 #categoryButton-2{
@@ -423,10 +426,21 @@ nav a:hover{
     border-color: var(--brightPink);
 }
 
+#categoryButton-2:hover{
+    background-color: var(--brightPink);
+    color: var(--darkBlack);
+    cursor: pointer;
+}
 
 #categoryButton-3{
     color: var(--brightBlue);
     border-color: var(--brightBlue);
+}
+
+#categoryButton-3:hover{
+    background-color: var(--brightBlue);
+    color: var(--darkBlack);
+    cursor: pointer;
 }
 
 #categoryButton-4{
@@ -434,9 +448,21 @@ nav a:hover{
     border-color: var(--brightYellow);
 }
 
+#categoryButton-4:hover{
+    background-color: var(--brightYellow);
+    color: var(--darkBlack);
+    cursor: pointer;
+}
+
 #categoryButton-5{
     color: var(--brightGreen);
     border-color: var(--brightGreen);
+}
+
+#categoryButton-5:hover{
+    background-color: var(--brightGreen);
+    color: var(--darkBlack);
+    cursor: pointer;
 }
 
 #categoryButton-6{
@@ -444,9 +470,21 @@ nav a:hover{
     border-color: var(--brightBrown);
 }
 
+#categoryButton-6:hover{
+    background-color: var(--brightBrown);
+    color: var(--darkBlack);
+    cursor: pointer;
+}
+
 #categoryButton-7{
     color: var(--brightOrange);
     border-color: var(--brightOrange);
+}
+
+#categoryButton-7:hover{
+    background-color: var(--brightOrange);
+    color: var(--darkBlack);
+    cursor: pointer;
 }
 
 .allPostsSection{
@@ -462,13 +500,176 @@ nav a:hover{
     margin-right: -20px;
 }
 
+.showMoreBtn{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.showMoreBtn button{
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: var(--regularCourier);
+    width: 120px;
+    background-color: var(--brightPink);
+    border: none;
+    border-radius: 10px;
+}
+
+.showMoreBtn button:hover{
+    background-color: var(--brightYellow);
+    cursor: pointer;
+}
+
+/*BLOGPOSTS*/
+
+.blogpostHero{
+    background-image: url(https://wpsite.codecrush.no/wp-content/uploads/2023/04/1677583559900-1.png);
+    background-size: cover;
+    background-position: 50%;
+    height: 400px;
+    z-index: 0;
+}
+
+.blogpostInfo{
+    background-color: var(--matteBlack);
+    position: absolute;
+    top: 110px;
+    left: 100px;
+    z-index: 1;
+    width: 300px;
+    min-height: 150px;
+    padding: 20px;
+    
+}
+
+.blogpostInfo p{
+    font-size: 16px;
+    line-height: 25px;
+}
+
+#infoGreen{
+    color: var(--brightGreen);
+}
+#infoYellow{
+    color: var(--brightYellow);
+}
+
+#infoBlue{
+    color: var(--brightBlue);
+    margin-bottom: 20px;
+}
+
+.blogpostInfo h5{
+    color: var(--brightPink);
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+.blogPostSection{
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.blogPostSection h1{
+    text-align: center;
+    max-width: 550px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+.blogpostMain{
+    margin-left: 0;
+}
+
+.blogPostSection p{
+    max-width: 550px;
+    color: var(--pearlWhite);
+    font-family: var(--regularArial);
+    font-size: 16px;
+    line-height: 25px;
+    text-align: justify;
+}
+
+.headNav{
+    width: 100%;
+    position: relative;
+    top: 0;
+    height: 110px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    box-sizing: border-box;
+}
+
+.blogpostInfoMobile{
+    display: flex;
+    flex-direction: row;
+    justify-items:stretch;
+    width: 100%;
+    justify-content: center;
+}
+
+.blogpostInfoMobile p{
+    font-size: 12px;
+}
+
+.blogpostLike{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.blogpostLike div{
+    background-color: var(--darkBlack);
+    width: 50%;
+    height: auto;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.blogpostLike p{
+    color: var(--brightPink);
+    text-align: center;
+}
+
+.blogpostLike button{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.blogpostLike button:hover{
+    cursor: pointer;
+}
+
+.blogpostLike img{
+    max-width: 60px;
+    justify-self: center;
+    align-self: center;
+}
+
 
 
 
 
 
 @media screen and (max-width: 960px) {
-    nav{
+    nav {
         display: none;
     }
 
@@ -478,6 +679,14 @@ nav a:hover{
 
     footer{
         padding-left: 20px;
+    }
+
+    .headNav{
+        display: none;
+    }
+
+    .blogpostInfo{
+        display: none;
     }
 }
 
@@ -491,5 +700,29 @@ nav a:hover{
 @media screen and (max-width:1280px) {
     .allPostsContainer{
         grid-template-columns: auto auto;
+    }
+
+    
+}
+
+@media screen and (max-width:390px) {
+    .blogPostSection h1{
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .blogPostSection p{
+        padding: 0 30px 0 30px;
+    }
+
+    .blogpostInfoMobile{
+        margin-bottom: 20px;
+        display: flex;
+    }
+}
+
+@media screen and (max-width:1930px) {
+    .blogpostInfoMobile{
+        display: none;
     }
 }
