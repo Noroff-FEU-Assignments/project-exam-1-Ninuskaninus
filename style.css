@@ -579,7 +579,7 @@ nav a:hover{
 
 .blogPostSection h1{
     text-align: center;
-    max-width: 550px;
+    max-width: 600px;
     margin-top: 50px;
     margin-bottom: 50px;
     font-weight: 300;
@@ -604,9 +604,11 @@ nav a:hover{
     top: 0;
     height: 110px;
     margin-bottom: 0;
+    padding-right: 100px;
     display: flex;
     flex-direction: row;
     justify-content:space-between;
+    align-items: center;
     box-sizing: border-box;
 }
 
@@ -663,6 +665,64 @@ nav a:hover{
     align-self: center;
 }
 
+#toggleNav{
+    display: none;
+    top: 0;
+}
+
+.navContent button{
+    max-width: 150px;
+    min-height: 30px;
+    margin-top: 20px;
+    background-color: var(--darkBlack);
+    color: var(--brightPink);
+    border: none;
+    border-radius: 10px;
+    font-family: var(--regularCourier);
+    padding: 10px;
+}
+
+.navContent button:hover{
+    background-color: var(--brightPink);
+    color: var(--darkBlack);
+    cursor: pointer;
+}
+
+.menuBtnToggle{
+    position: fixed;
+    display: flex;
+    top: 110px;
+    z-index: 100;
+    width: 80px;
+    height: 400px;
+    justify-content: left;
+    align-items: center;
+}
+
+.menuBtnToggle button {
+    transform: rotate(-90deg);
+    color: var(--brightPink);
+    background-color: var(--matteBlack);
+    outline: none;
+    border: none;
+    padding: 10px;
+    font-family: var(--regularCourier);
+    color: var(--brightPink);
+    font-size: 20px;
+    display: block;
+    height: 50px;
+    width: 100px;
+    margin-left: -25px;
+}
+
+.menuBtnToggle button:hover{
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+
+
+
+
 
 
 
@@ -686,6 +746,10 @@ nav a:hover{
     }
 
     .blogpostInfo{
+        display: none;
+    }
+
+    .menuBtnToggle{
         display: none;
     }
 }

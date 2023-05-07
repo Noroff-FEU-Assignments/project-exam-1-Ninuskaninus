@@ -7,12 +7,12 @@ async function fetchPosts() {
     const categoryIds = post.categories;
     const categoriesUrl = `https://wpsite.codecrush.no/wp-json/wp/v2/categories?include=${categoryIds.join(',')}&_fields=id,name`;
     const [mediaResponse, categoriesResponse] = await Promise.all([fetch(featuredMediaUrl), fetch(categoriesUrl)]);
-    const [media, categories] = await Promise.all([mediaResponse.json(), categoriesResponse.json()]);
+    const [media, categories,] = await Promise.all([mediaResponse.json(), categoriesResponse.json()]);
     const categoryNames = categories.map(category => category.name);
     const postObject = {
       title: post.title.rendered,
       authorId: post.author,
-      date: post.date,
+      date: new Date(post.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
       id: post.id,
       categories: categoryNames,
       content: post.content.rendered,
@@ -20,7 +20,7 @@ async function fetchPosts() {
     };
     allPosts.push(postObject);
   }));
-  console.log(allPosts.content);
+  console.log(allPosts);
   return allPosts;
 }
 
@@ -31,7 +31,12 @@ async function fetchAuthors() {
     const data = await response.json();
     const authors = data;
     
-    return authors;
+      const allAuthors = {
+        name: authors[0].name,
+        id: authors[0].id
+      };
+    
+    return allAuthors;
     
   } catch (error) {
     console.error(error);
@@ -54,6 +59,26 @@ async function fetchCategories() {
   }
 }
 
+async function fetchContent() {
+  try {
+    const response = await fetch('https://wpsite.codecrush.no/wp-json/wp/v2/posts?_fields=content.rendered');
+    const data = await response.json();
+    const allContent = data.map(post => {
+      return { content: post.content.rendered };
+    });
+    return allContent; 
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+
+
+
+
+
 export { fetchPosts };
 export { fetchAuthors };
 export { fetchCategories };
+export { fetchContent };
