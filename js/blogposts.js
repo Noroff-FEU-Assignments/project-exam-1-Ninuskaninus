@@ -1,16 +1,25 @@
 import { fetchContent, fetchPosts, fetchCategories, fetchAuthors } from './posts.js';
 
 
-const likebutton = document.querySelector(".blogpostLike button img");
-likebutton.addEventListener("click", () => {
-  if (likebutton.getAttribute("src") === "images/heartline.png") {
-    likebutton.setAttribute("src", "images/heartfull.png");
+
+const likeButton = document.querySelector(".blogpostLike button img");
+let likeCount = 0;
+const likeCounter = document.createElement("p");
+const postInfo = document.querySelector(".post-info");
+likeCounter.textContent = `> Likes: ${likeCount}`;
+likeCounter.id = "infoBlue";
+
+likeButton.addEventListener("click", () => {
+  if (likeButton.getAttribute("src") === "images/heartline.png") {
+    likeButton.setAttribute("src", "images/heartfull.png");
+    console.log("This has been clicked")
+    likeCount++;
   } else{
-    likebutton.setAttribute("src", "images/heartline.png");
+    likeButton.setAttribute("src", "images/heartline.png");
+    likeCount--;
   }
-  const likeCounter = document.createElement("p");
-  likeCounter.id = ""
 });
+
 
 const menubutton = document.querySelector(".menuBtnToggle button");
 const menuToggle = document.querySelector("#toggleNav");
@@ -33,9 +42,6 @@ Promise.all([fetchPosts(), fetchCategories(), fetchContent(), fetchAuthors()])
   const authorId = urlParams.get('id');
   const post = allPosts.find(post => post.id == postId);
   const content = allContent.find(content => content.id == contentId);
-  
-  
-  
 
   const postHero = document.querySelector(".blogpostHero");
     postHero.classList.add("blogpostHero");
@@ -57,6 +63,13 @@ Promise.all([fetchPosts(), fetchCategories(), fetchContent(), fetchAuthors()])
     const postPublished = document.createElement("p");
     postPublished.textContent = `> Published: ${post.date}`;
     postPublished.id ="infoYellow";
+
+
+    const postCategories = document.createElement("h5");
+    postCategories.textContent = `${post.categories.join(", ")}`;
+    postCategories.href = `href="categories.html?${categories.id}"`
+    
+
     
     
     
@@ -64,6 +77,8 @@ Promise.all([fetchPosts(), fetchCategories(), fetchContent(), fetchAuthors()])
     
     postInfo.appendChild(postAuthor); 
     postInfo.appendChild(postPublished);
+    postInfo.appendChild(likeCounter);
+    postInfo.appendChild(postCategories);
 
     
     

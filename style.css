@@ -535,6 +535,8 @@ nav a:hover{
 .blogpostInfo{
     background-color: var(--matteBlack);
     position: absolute;
+    display: flex;
+    flex-direction: column;
     top: 110px;
     left: 100px;
     z-index: 1;
