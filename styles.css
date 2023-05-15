@@ -1,0 +1,226 @@
+@import url("https://use.typekit.net/lrw7ati.css");
+
+:root  {
+    --darkBlack: #212121;
+    --solidBlack: #151515;
+    --lightBlue: #9BDBFC;
+    --lightBrown: #c0a670;
+    --lightPink: #DA6FD5;
+    --lightGreen: #A7BC9B;
+    --lightYellow: #FAD300;
+    --darkBrown: #BC856F;
+    --pearlWhite: #fafafa;
+    --errorRed: #cc2e2e;
+    --lightGray: #7b7b7b;
+
+    --courier: "Courier New", Courier, monospace;
+    --arial: Arial, Helvetica, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    font-family: var(--courier);
+    background-color: var(--darkBlack);
+    color: var(--pearlWhite);
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    margin-left: 222px;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 10vh;
+    background-color: var(--solidBlack);
+    margin-left: 222px;
+}
+
+footer a {
+    color: var(--lightBlue);
+    text-decoration: none;
+    font-family: var(--courier);
+    font-size: 1rem;
+    font-weight: 200;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+nav{
+    background-color: var(--matteBlack);
+    width: 222px;
+    height: 100%;
+    padding-left: 30px;
+    padding-top: 30px;
+    position: fixed;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+nav img {
+    max-width: 150px;
+    margin-bottom: 100px;
+}
+
+.navContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.navContainer h2{
+    font-family: var(--courier);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--lightBlue);
+}
+
+.navContainer a{
+    font-family: var(--courier);
+    font-size: 1rem;
+    font-weight: 200;
+    color: var(--lightBlue);
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+#categories {
+    color: var(--lightPink);
+}
+
+#lightYellow h2{
+    color: var(--lightYellow);
+}
+
+#lightYellow a{
+    color: var(--lightYellow);
+}
+
+.navContainer a:hover {
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.indexHero{
+    background-image: url('https://wpsite.codecrush.no/wp-content/uploads/2023/04/1677583559900-1.png');
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    width: 100%;
+}
+
+.indexHeroContent{
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: column;
+    position:inherit;
+    width: 430px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.indexHeroContent h1{
+    font-family: var(--courier);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--lightBlue);
+}
+
+.indexHeroContent p{
+    font-family: var(--courier);
+    font-size: 1.2rem;
+    font-weight: 200;
+    color: var(--lightBlue);
+}
+
+.indexHeroContent button{
+    height: auto;
+    width: auto;
+    padding: 10px;
+    border-radius: 10px; 
+    position: relative;
+    top: 100px;
+    left: 60px;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: var(--darkBlack);
+    font-size: 1.2rem;
+    border: none;
+    text-decoration: none;
+    font-family: var(--courier);
+    box-sizing: border-box;
+    background: linear-gradient(90deg,var(--lightBlue),var(--lightPink),var(--lightYellow),var(--lightBlue));
+    background-size: 400%;
+    cursor: pointer;
+}
+
+.indexHeroContent button:hover
+{
+    animation: animate 8s linear infinite;
+}
+
+@keyframes animate
+{
+    0%
+    {
+        background-position: 0%;
+    }
+    100%
+    {
+        background-position: 400%;
+    }
+}
+
+.indexHeroContent button:before
+{
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    bottom: -5px;
+    right: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg,var(--lightBlue),var(--lightPink),var(--lightYellow),var(--lightBlue));
+    background-size: 400%;
+    border-radius: 40px;
+    opacity: 0;
+    transition: 1s;
+}
+
+.indexHeroContent button:hover:before
+{
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+}
+
+
+
+
