@@ -81,7 +81,10 @@ p{
     color: var(--pearlWhite);
 }
 
-
+img {
+    max-width: 100%;
+    display: block;
+}
 
 body {
     font-family: var(--courier);
@@ -332,17 +335,16 @@ nav img {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-top: 50px;
     margin-bottom: 20px;
     width: 80%;
 }
+
 .carouselBtnContainer img{
     max-width: 10px;
     margin: 0 10px;
     cursor: pointer;
 }
     
-
 
 .carouselContainer{
     display: flex;
@@ -354,7 +356,7 @@ nav img {
 }
 
 .carouselImg{
-    min-width: 300px;
+    min-width: 350px;
     min-height: 300px;
     background-image: url('https://wpsite.codecrush.no/wp-content/uploads/2023/04/1677583559900-1.png');
     background-size: cover;
@@ -363,10 +365,21 @@ nav img {
 }
 
 .carouselItem{
-    width: auto;
+    min-width: auto;
     padding: 20px;
+    margin-right: 20px;
     box-sizing: border-box;
     text-decoration: none;
+}
+
+.carouselCategories a {
+    text-decoration: none;
+    color: var(--lightPink);
+}
+
+.carouselCategories a:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 
@@ -376,11 +389,22 @@ nav img {
 }
 
 .carousel{
+    display: inline-flex;
+    overflow: hidden;
+    width: 80%;
+    margin-bottom: 50px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    transition:  transform 0.2 ease-in-out;
+}
+
+ .carouselTrack{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    overflow: hidden;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
+    height: 100%;
+    transition: transform 0.2s ease-in-out;
 }
 
   
@@ -419,6 +443,10 @@ nav img {
         height: 500px;
     }
 
+    .searchBar input {
+        margin-top: 50px;
+    }
+
     .indexHeroContent h1{
         font-size: 2rem;
         padding: 20px;
@@ -429,6 +457,12 @@ nav img {
         left: 17%;
         transform: translate(-50%,-50%);
     }
+
+    .carouselImg{
+        min-width: 270px;
+        min-height: 250px;
+    }
+    
 }
     
 

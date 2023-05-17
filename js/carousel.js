@@ -1,0 +1,6 @@
+import { getPosts } from "./postData";
+
+
+
+
+
