@@ -20,7 +20,6 @@ const getPosts = () => {
           slug: post.slug,
         };
       });
-      console.log(posts);
       return posts;
     })
     .catch(error => console.error(error));

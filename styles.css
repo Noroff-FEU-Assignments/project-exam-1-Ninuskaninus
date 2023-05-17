@@ -27,6 +27,62 @@
     outline: none;
 }
 
+button {
+    background-color: transparent;
+    border: none;
+}
+
+h1{
+    font-family: var(--courier);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--lightBlue);
+}
+
+h2{
+    font-family: var(--courier);
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--lightBlue);
+}
+
+h3{
+    font-family: var(--courier);
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--lightBlue);
+}
+
+h4{
+    font-family: var(--courier);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--lightBlue);
+}
+
+h5{
+    font-family: var(--courier);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--lightBlue);
+}
+
+h6{
+    font-family: var(--arial);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--pearlWhite);
+}
+
+p{
+    font-family: var(--arial);
+    font-size: 1rem;
+    font-weight: 200;
+    color: var(--pearlWhite);
+}
+
+
+
 body {
     font-family: var(--courier);
     background-color: var(--darkBlack);
@@ -37,9 +93,11 @@ body {
     max-width: 100%;
 }
 
+
+
 main {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     min-height: 100vh;
     margin-left: 222px;
 }
@@ -113,7 +171,7 @@ nav img {
     color: var(--lightPink);
 }
 
-#lightYellow h2{
+#lightYellow h4{
     color: var(--lightYellow);
 }
 
@@ -148,9 +206,11 @@ nav img {
 
 .indexHeroContent h1{
     font-family: var(--courier);
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--lightBlue);
+    text-align: center;
+    padding: 10px;
 }
 
 .indexHeroContent p{
@@ -160,13 +220,13 @@ nav img {
     color: var(--lightBlue);
 }
 
-.indexHeroContent button{
+.indexHeroContent a{
     height: auto;
     width: auto;
     padding: 10px;
     border-radius: 10px; 
     position: relative;
-    top: 100px;
+    top: 70px;
     left: 60px;
     transform: translate(-50%,-50%);
     text-align: center;
@@ -181,7 +241,7 @@ nav img {
     cursor: pointer;
 }
 
-.indexHeroContent button:hover
+.indexHeroContent a:hover
 {
     animation: animate 8s linear infinite;
 }
@@ -198,7 +258,7 @@ nav img {
     }
 }
 
-.indexHeroContent button:before
+.indexHeroContent a:before
 {
     content: '';
     position: absolute;
@@ -214,12 +274,164 @@ nav img {
     transition: 1s;
 }
 
-.indexHeroContent button:hover:before
+.indexHeroContent a:hover:before
 {
     filter: blur(20px);
     opacity: 1;
     animation: animate 8s linear infinite;
 }
+
+.searchBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.searchBar input {
+    width: 81%;
+    height: 20px;
+    padding: 20px;
+    background-color: var(--solidBlack);
+    border: none;
+    margin-right: 20px;
+    border-radius: 10px;
+    font: var(--courier);
+    color: var(--pearlWhite);
+}
+
+.searchBar input::placeholder {
+    color: var(--lightPink);
+    font-family: var(--courier);
+    font-size: 0.8rem;
+    font-weight: 200;
+}
+
+.searchBar input:focus {
+    outline: var(--lightPink);
+    outline-style: solid;
+    outline-width: 1px;
+}
+
+.searchBar button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: -60px;
+}
+
+.searchBar button img{
+    max-width: 20px;
+}
+
+
+.carouselHead{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    width: 80%;
+}
+.carouselBtnContainer img{
+    max-width: 10px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+    
+
+
+.carouselContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.carouselImg{
+    min-width: 300px;
+    min-height: 300px;
+    background-image: url('https://wpsite.codecrush.no/wp-content/uploads/2023/04/1677583559900-1.png');
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+}
+
+.carouselItem{
+    width: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+
+.carouselItem:hover{
+    background-color: var(--solidBlack);
+    cursor: pointer;
+}
+
+.carousel{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    overflow: hidden;
+    width: 100%;
+}
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 834px) {
+    main {
+        margin-left: 0;
+    }
+
+    footer {
+        margin-left: 0;
+    }
+
+    nav {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .indexHeroContent {
+        width: 100%;
+        height: 500px;
+    }
+
+    .indexHeroContent h1{
+        font-size: 2rem;
+        padding: 20px;
+    }
+
+    .indexHeroContent a{
+        top: 50px;
+        left: 17%;
+        transform: translate(-50%,-50%);
+    }
+}
+    
+
 
 
 

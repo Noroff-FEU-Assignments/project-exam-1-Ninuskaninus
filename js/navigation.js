@@ -2,7 +2,7 @@ import { getPosts } from './postData.js';
 
 
 const navContainer = document.querySelector('#categories');
-const navCategoriesTitle = document.createElement("h2");
+const navCategoriesTitle = document.createElement("h4");
 navCategoriesTitle.textContent = "Categories";
 navCategoriesTitle.style.color = "var(--brightPink)";
 navContainer.appendChild(navCategoriesTitle); 

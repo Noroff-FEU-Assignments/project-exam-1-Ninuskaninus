@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>CodeCrush</title>
@@ -11,23 +11,58 @@
     <nav>
         <a href="index.html"><img src="images/Logo blue.png" alt="CodeCrush Logo"></a>
         <div class="navContainer" id="lightBlue">
-            <h2>Navigation</h2>
+            <h4>Navigation</h4>
             <a href="index.html">Home</a>
             <a href="blogs.html">Blogs</a>
         </div>
         <div class="navContainer" id="categories"></div>
         <div class="navContainer" id="lightYellow">
-            <h2>Useful links</h2>
+            <h4>Useful links</h4>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
         </div>
     </nav>
     <main>
         <section class="indexHero">
-            <div class="indexHeroContent">
-                <h1>Featured post</h1>
-                <p>Author: Nina Amdal</p>
-                <button>Read more</button>
+            <div class="indexHeroContent"></div>
+        </section>
+        <section class="searchBar">
+            <input type="text" placeholder="Search for something">
+            <button><img src="/images/searchIcon.png" alt=""></button>
+        </section>
+        <section class="carouselContainer">
+            <div class="carouselHead">
+                <h3>Latest posts</h3>
+                <div class="carouselBtnContainer">
+                    <button><img src="images/arrow-left.png" alt=""></button>
+                    <button><img src="images/arrow-right.png" alt=""></button>
+                </div>
+            </div>
+            <div class="carousel">
+                <div class="carouselItem">
+                    <div class="carouselImg"></div>
+                    <div class="carouselCategories">
+                        <a href="">Category 1</a>
+                        <a href="">Category 2</a>
+                    </div>
+                    <h6>This is a title</h6>
+                </div>
+                <div class="carouselItem">
+                    <div class="carouselImg"></div>
+                    <div class="carouselCategories">
+                        <a href="">Category 1</a>
+                        <a href="">Category 2</a>
+                    </div>
+                    <h6>This is a title</h6>
+                </div>
+                <div class="carouselItem">
+                    <div class="carouselImg"></div>
+                    <div class="carouselCategories">
+                        <a href="">Category 1</a>
+                        <a href="">Category 2</a>
+                    </div>
+                    <h6>This is a title</h6>
+                </div>
             </div>
         </section>
     </main>
@@ -39,6 +74,8 @@
     </footer>
     <script type="module" src="js/index.js"></script>
     <script type="module" src="js/navigation.js"></script>
+    <script type="module" src="js/searchbar.js"></script>
+    <script type="module" src="js/carousel.js"></script>
     <script type="module" src="js/postData.js"></script>
 </body>
 </html>
