@@ -15,6 +15,7 @@ const getPosts = () => {
           date: date,
           author: authorName,
           category: categoryNames,
+          categoryID: post._embedded['wp:term'][0][0].id,
           link: post.link,
           tags: post.tags,
           slug: post.slug,
