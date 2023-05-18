@@ -7,6 +7,12 @@ navCategoriesTitle.textContent = "Categories";
 navCategoriesTitle.style.color = "var(--brightPink)";
 navContainer.appendChild(navCategoriesTitle); 
 
+const categoriesMobile = document.querySelector('#hamburgerCategories');
+const navCategoriesMobileTitle = document.createElement("h4");
+navCategoriesMobileTitle.textContent = "Categories";
+navCategoriesMobileTitle.style.color = "var(--brightPink)";
+categoriesMobile.appendChild(navCategoriesMobileTitle);
+
 getPosts()
   .then(posts => {
     const categories = {};
@@ -22,19 +28,18 @@ getPosts()
       const navCategories = document.createElement("a");
       navCategories.href = `category.html?category=${category}`;
       navCategories.textContent = category;
-      navCategories.style.color = "var(--brightPink)"
+      navCategories.style.color = "var(--brightPink)";
 
       
-      if (window.innerWidth < 834) {
-        const categoriesMobile = document.querySelector('#hamburgerCategories');
-        categoriesMobile.appendChild(navCategories);
-      }
       
-     
-      navContainer.appendChild(navCategories);
+      categoriesMobile.appendChild(navCategories);
+
+      const navBigScreen = document.querySelector("nav #categories");
+      navBigScreen.appendChild(navCategories.cloneNode(true));
     });
   })
   .catch(error => console.error(error));
+
 
 
 

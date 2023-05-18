@@ -32,47 +32,69 @@ getPosts().then(posts => {
 getPosts().then(posts => {
   const postsSection = document.querySelector(".allPosts");
   const postsContainer = document.createElement("div");
-  
-  
-
   postsContainer.classList.add("postsContainer");
   postsSection.appendChild(postsContainer);
 
+  const seeMoreContainer = document.createElement("div");
+  seeMoreContainer.classList.add("seeMoreContainer");
+  postsSection.appendChild(seeMoreContainer);
+
+  const seeMoreBtn = document.createElement("button");
+  seeMoreBtn.textContent = "See more";
+  seeMoreContainer.appendChild(seeMoreBtn);
+
+ 
+
+  let numPosts = 5;
+
+  seeMoreBtn.addEventListener("click", () => {
+    if (numPosts === 5) {
+      numPosts += 10;
+      seeMoreBtn.textContent = "See Less";
+    } else {
+      numPosts = 5;
+      seeMoreBtn.textContent = "See More";
+    }
+    renderPosts();
+  });
+  
+  
+  function renderPosts() {
+    postsContainer.innerHTML = ""; 
+  
+    for (let i = 0; i < numPosts && i < posts.length; i++) {
+      const post = posts[i];
+      const postContainer = document.createElement("a");
+      postContainer.href = `post.html?id=${post.id}`;
+      postContainer.classList.add("postContainer");
+      postsContainer.appendChild(postContainer);
+  
+      const postImg = document.createElement("div");
+      postImg.classList.add("postImg");
+      postImg.style.backgroundImage = `url(${post.image})`;
+      postContainer.appendChild(postImg);
+  
+      const postContent = document.createElement("div");
+      postContent.classList.add("postContent");
+      postContainer.appendChild(postContent);
+  
+      const postCategory = document.createElement("a");
+      postCategory.href = `category.html?category=${post.category}`;
+      postCategory.textContent = post.category;
+      postContent.appendChild(postCategory);
+  
+      const postTitle = document.createElement("h6");
+      postTitle.classList.add("postTitle");
+      postTitle.textContent = post.title;
+      postContent.appendChild(postTitle);
+    }
+  }
+  
+  renderPosts();
+  
 
 
-  const numPosts = 10;
-  for(let i=0; i<numPosts; i++) {
-    const post = posts[i];
-    const postContainer = document.createElement("a");
-    postContainer.href = `post.html?slug=${post.slug}`;
-    postContainer.classList.add("postContainer");
-    postsContainer.appendChild(postContainer);
 
-    const postImg = document.createElement("div");
-    postImg.classList.add("postImg");
-    postImg.style.backgroundImage = `url(${post.image})`;
-    postContainer.appendChild(postImg);
-
-    const postContent = document.createElement("div");
-    postContent.classList.add("postContent");
-    postContainer.appendChild(postContent);
-
-    const postCategory = document.createElement("a");
-    postCategory.href = `category.html?category=${post.category}`;
-    postCategory.textContent = post.category;
-    postContent.appendChild(postCategory);
-
-    const postTitle = document.createElement("h6");
-    postTitle.classList.add("postTitle");
-    postTitle.textContent = post.title;
-    postContent.appendChild(postTitle);
-
-  };
-
-  const seeMore = document.createElement("button");
-  seeMore.classList.add("seeMore");
-  seeMore.textContent = "See more";
-  postsContainer.appendChild(seeMore);
 
 
 

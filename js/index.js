@@ -17,7 +17,7 @@ getPosts()
 
     const featuredLink = document.createElement("a");
     featuredLink.textContent = 'Read more';
-    featuredLink.href = `post.html?slug=${featuredPost[0].slug}`;
+    featuredLink.href = `post.html?id=${featuredPost[0].id}`;
     indexHeroContent.appendChild(featuredLink);
     });
 

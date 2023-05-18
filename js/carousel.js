@@ -47,7 +47,8 @@ const numPosts = Math.min(posts.length, 6);
 for (let i = 0; i < numPosts; i++) {
   const post = posts[i];
 
-  const carouselItem = document.createElement("div");
+  const carouselItem = document.createElement("a");
+  carouselItem.href = `post.html?id=${post.id}`;
   carouselItem.classList.add("carouselItem");
   carousel.appendChild(carouselItem);
 

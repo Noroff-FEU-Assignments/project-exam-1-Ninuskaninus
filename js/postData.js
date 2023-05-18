@@ -19,6 +19,7 @@ const getPosts = () => {
           link: post.link,
           tags: post.tags,
           slug: post.slug,
+          id: post.id
         };
       });
       return posts;
