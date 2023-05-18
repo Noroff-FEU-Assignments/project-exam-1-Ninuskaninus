@@ -742,6 +742,7 @@ nav img {
 .postsNavHide{
     margin-left: -300px;
     background-color: var(--darkBlack);
+    z-index: 600;
 }
 
 .postsNavHide button{
@@ -822,13 +823,86 @@ nav img {
 
 .blogPost{
     margin-top: 50px;
-    width: 100%;
+    max-width: 600px;
     align-items: center;
     justify-content: center;
     display: flex;
-    padding-left: 20%;
-    padding-right: 20%;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
+
+.blogPost h1{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.blogContent{
+    padding: 10px;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.blogContent p{
+    line-height: 1.8rem;
+    margin: 0px 0 30px 0;
+}
+
+figure img{
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+}
+
+figcaption{
+    background-color: var(--darkBlack);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    padding: 10px;
+    font-style: italic;
+    font-size: 0.8rem;
+}
+
+ blockquote{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+blockquote p{
+    font-family: var(--courier);
+    font-size: 1.7rem;
+    text-align: center;
+    color: var(--lightPink);
+}
+
+pre {
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    padding: 20px;
+    margin-bottom: 30px;
+    width: 100%;
+    font-size: 0.8rem;
+    min-height: 250px;
+    
+}
+
+.wp-block-buttons{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    align-content: center;
+    justify-content: right;
+    background-color: var(--solidBlack);
+    padding: 10px;
+    margin-bottom: -1px;
+    width: 100%;
+    
+}
+
+
 
 
 
@@ -858,6 +932,22 @@ nav img {
         margin-left: 0;
         padding-top: 0;
         margin-top: 0;
+    }
+
+    .menuBtn{
+        display: none;
+    }
+
+    .topNav{
+        display: none;
+    }
+
+    .postHead{
+        margin-top: 0;
+    }
+
+    .blogContent{
+        padding: 30px;
     }
 
     footer {
@@ -907,6 +997,10 @@ nav img {
     .blogsHead{
         margin-top: 70px;
         padding-left: 12%;
+    }
+
+    .postHeadContent{
+        display: none;
     }
 }
 
@@ -1005,6 +1099,10 @@ nav img {
         margin: 5px;
         max-width: 50px;
         font-size: 0.8rem;
+    }
+
+    .blogPost h1{
+        max-width: 350px;
     }
     
 }
