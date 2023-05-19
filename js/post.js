@@ -1,5 +1,7 @@
 import { getPosts } from "./postData.js";
 
+
+
 const menubutton = document.querySelector(".menuBtn");
 const menuToggle = document.querySelector(".postsNavHide");
 const menuButtonClose = document.querySelector(".postsNavHide button");
@@ -18,6 +20,10 @@ menuButtonClose.addEventListener("click", () => {
 });
 
 getPosts().then(posts => {
+    
+    const postTitle = document.querySelector("title");
+    postTitle.textContent = `CodeCrush – ${posts[0].title}`;
+  
     const selectedPost = posts.find(post => post.id === parseInt(location.search.split("=")[1]));
     const blogheader = document.querySelector(".postHead");
     blogheader.style.backgroundImage = `url(${selectedPost.image})`;
@@ -49,6 +55,7 @@ getPosts().then(posts => {
     const blogContent = document.createElement("div");
     blogContent.classList.add("blogContent");
 
+
 const codeContent = selectedPost.content;
 const highlightedContent = codeContent.replace(/(const|let|var)/g, '<span class="keyword">$1</span>');
 
@@ -56,24 +63,23 @@ const highlightedContent = codeContent.replace(/(const|let|var)/g, '<span class=
     blogPost.appendChild(blogContent);
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Wait for the DOM to be fully loaded before executing the code
-  
-    const copyButton = document.querySelector(".wp-block-buttons");
-    const copyCode = document.querySelector("code");
-  
-    if (copyButton && copyCode) {
-      // Check if both elements are present in the DOM
-  
-      copyButton.style.color = "blue";
-  
-      copyButton.addEventListener("click", function() {
-        copyCode.select();
-        document.execCommand("copy");
-        alert("Code copied to clipboard!");
-      });
-    }
-  });
+
+
+const likeButton = document.querySelector(".blogpostLike button img");
+let likeCount = 0;
+const likeText = document.querySelector(".blogpostLike h4");
+
+
+likeButton.addEventListener("click", () => {
+  if (likeButton.getAttribute("src") === "images/heartline.png") {
+    likeButton.setAttribute("src", "images/heartfull.png");
+    likeText.textContent = `Thank you, we like you too <3`;
+    likeCount++;
+  } else{
+    likeButton.setAttribute("src", "images/heartline.png");
+    likeCount--;
+  }
+});
   
 
 

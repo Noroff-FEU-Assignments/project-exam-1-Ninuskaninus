@@ -84,6 +84,8 @@ p{
 img {
     max-width: 100%;
     display: block;
+    object-fit: cover;
+    object-position: center;
 }
 
 a{
@@ -137,6 +139,8 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/*NAVIGATION*/
+
 nav{
     background-color: var(--matteBlack);
     width: 222px;
@@ -161,7 +165,7 @@ nav{
     align-items: center;
     justify-content: space-between;
     padding: 50px;
-    padding-left: 100px;
+    padding-left: 50px;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
     z-index: 500;
 }
@@ -339,6 +343,8 @@ nav img {
     text-decoration: underline;
 }
 
+/*INDEX*/
+
 .indexHero{
     background-image: url('https://wpsite.codecrush.no/wp-content/uploads/2023/04/1677583559900-1.png');
     background-size: cover;
@@ -437,6 +443,83 @@ nav img {
     animation: animate 8s linear infinite;
 }
 
+.indexInformation{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.informationGrid{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 100px;
+    width: 80%;
+}
+
+.btnContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 50px;
+    width: 100%;
+    justify-content: center;
+}
+
+.btnContainer a{
+    background-color: var(--lightPink);
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px;
+    min-width: 150px;
+    color: var(--darkBlack);
+    font-weight: 500;
+    justify-content: center;
+    display: flex;
+    margin-right: 50px;
+}
+
+#btnYellow{
+    background-color: var(--lightYellow);
+}
+
+.grid-left img{
+    max-width: 400px;
+}
+
+.grid-left{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.grid-left h1{
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.grid-right{
+    box-shadow:  0 0 20px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.grid-right p{
+    color: var(--lightBlue);
+    font-family: var(--courier);
+    font-size: 1.2rem;
+}
+
+.btnContainer a:hover{
+    font-weight: 700;
+}
+
+/*SEARCH BAR*/
+
 .searchBar{
     display: flex;
     flex-direction: row;
@@ -482,6 +565,8 @@ nav img {
     max-width: 20px;
 }
 
+
+/*CAROUSEL*/
 
 .carouselHead{
     display: flex;
@@ -559,6 +644,8 @@ nav img {
     height: 100%;
     transition: transform 0.2s ease-in-out;
 }
+
+/*ALL BLOGS*/
 
 .blogsHead{
     width: 100%;
@@ -721,6 +808,8 @@ nav img {
 }
 
 
+/*POSTS*/
+
 .postImg{
     min-width: 200px;
     min-height: 200px;
@@ -850,8 +939,8 @@ nav img {
 }
 
 figure img{
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
+    object-position: center;
     margin-bottom: 20px;
 }
 
@@ -886,7 +975,10 @@ pre {
     width: 100%;
     font-size: 0.8rem;
     min-height: 250px;
-    
+}
+
+.rt-reading-time{
+    color: var(--lightYellow);
 }
 
 .wp-block-buttons{
@@ -899,7 +991,38 @@ pre {
     padding: 10px;
     margin-bottom: -1px;
     width: 100%;
-    
+}
+
+.postLike{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    width: 100%;
+}
+
+.blogpostLike{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    background-color: var(--solidBlack);
+    width: 80%;
+    padding: 20px;
+}
+
+.blogpostLike img{
+    max-width: 50px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.blogpostLike h4{
+    font-weight: 300;
+    color: var(--lightPink);
+    text-align: center;
 }
 
 
@@ -923,6 +1046,13 @@ pre {
 @media screen and (max-width: 1440px) {
     .postsContainer{
         grid-template-columns: auto auto auto;
+    }
+    .grid-left img {
+        max-width: 350px;
+    }
+
+    .grid-right{
+        min-width: 350px;
     }
 }
 
@@ -1002,6 +1132,15 @@ pre {
     .postHeadContent{
         display: none;
     }
+
+    .informationGrid{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+    justify-content: center;
+    align-content: center;
+}
+   
 }
 
 @media screen and (max-width: 500px) {
@@ -1103,6 +1242,33 @@ pre {
 
     .blogPost h1{
         max-width: 350px;
+    }
+
+    .indexInformation{
+        margin-bottom: 50px;
+    }
+
+    .informationGrid{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        grid-gap: 10px;
+        justify-content: center;
+        align-content: center;
+        width: 80%;
+    }
+
+    .grid-left {
+        max-width: 300px;
+    }
+
+    .btnContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        width: fit-content;
+        margin-bottom: 20px;
     }
     
 }
