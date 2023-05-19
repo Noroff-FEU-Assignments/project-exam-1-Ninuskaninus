@@ -8,9 +8,14 @@ const getPosts = () => {
         const categoryNames = post._embedded['wp:term'][0].map(category => category.name).join(', ');
         const date = new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
         const authorName = post._embedded.author[0].name;
+        const contentDOM = new DOMParser().parseFromString(post.content.rendered, 'text/html');
+        const imgElements = contentDOM.querySelectorAll('figure');
+        const imageSources = Array.from(imgElements).map(img => img.src);
+
         return {
           title: post.title.rendered,
           content: post.content.rendered,
+          images: imageSources,
           image: post._embedded['wp:featuredmedia'][0].source_url,
           date: date,
           author: authorName,

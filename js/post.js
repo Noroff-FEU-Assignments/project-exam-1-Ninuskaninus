@@ -55,13 +55,42 @@ getPosts().then(posts => {
     const blogContent = document.createElement("div");
     blogContent.classList.add("blogContent");
 
-
-const codeContent = selectedPost.content;
-const highlightedContent = codeContent.replace(/(const|let|var)/g, '<span class="keyword">$1</span>');
+    const codeContent = selectedPost.content;
+    const highlightedContent = codeContent.replace(/(const|let|var)/g, '<span class="keyword">$1</span>');
 
     blogContent.innerHTML = selectedPost.content;
     blogPost.appendChild(blogContent);
+
+    const contentContainer = document.createElement('div');
+    contentContainer.innerHTML = selectedPost.content;
+
+    const htmlText = selectedPost.content;
+    const tempElement = document.createElement('div');
+    tempElement.innerHTML = htmlText;
+    
+    const postImages = tempElement.querySelectorAll('figure');
+    
+    postImages.forEach(figure => {
+      figure.addEventListener('click', () => {
+        console.log("Click!");
+      });
+      console.log('Figure:', figure);
+    });
+    
+    
+    
+    
+   
+    
+    
+      
+
+
+    
 });
+
+
+
 
 
 
@@ -77,6 +106,7 @@ likeButton.addEventListener("click", () => {
     likeCount++;
   } else{
     likeButton.setAttribute("src", "images/heartline.png");
+    likeText.textContent = `Did you like this post? Please let us know!`;
     likeCount--;
   }
 });
