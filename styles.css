@@ -149,7 +149,7 @@ nav{
     padding-top: 30px;
     position: fixed;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-    z-index: 100;
+    z-index: 1000;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -1067,13 +1067,14 @@ pre {
 /*CONTACT*/
 .contact{
     width: 100%;
-    height: auto;
+    height: 100%;
     display: flex;
-    align-content: center;
+    align-content: start;
     justify-content: center;
+    margin-top: -100px;
 }
 
-.contactContent{
+.contactContent, .aboutContent{
     min-width: 60%;
     min-height: 60%;
     display: flex;
@@ -1174,87 +1175,125 @@ textarea:not(:placeholder-shown) {
   background-color: var(--solidBlack);
 }
 
-#nameError{
+#nameError, #emailError, #messageError, #subjectError{
     color: var(--errorRed);
     font-size: 0.8rem;
+    margin-bottom: 10px;
 }
 
-#completion {
-    width: 35px;
-    height: 35px;
-    margin-right: 5px;
-    display: block;
-  }
-  
-  @keyframes hideshow {
-    0% { opacity: 0.2; }
-    10% { opacity: 0.2; }
-    15% { opacity: 0.2; }
-    100% { opacity: 1; }
-  } 
-  
-  #cirkel { 
-    animation: hideshow 0.4s ease;
-  }
-  
-  #check {
-    animation: hideshow 0.4s ease;
-  }
-  
-  #stars {
-    animation: hideshow 1.0s ease;
-    opacity: 0.9;   
-  }
-  
-  
-  @keyframes hideshow {
-    0% {
-      transform: scale(0.2);
-      transform-origin: initial;
-      
-    }
-    100% {
-      transform: scale(1.0);
-      transform-origin: initial;
-    }
-  }
-  
-  @keyframes draaien {
-    0% {
-      transform: rotate(40deg);
-      transform-origin: initial;
-      
-    }
-    100% {
-      transform: scale(0deg);
-      transform-origin: initial;
-    }
-  }
-  
-  #check {
-    animation: draaien 0.8s ease;
-  }
-  
-  
-  @keyframes transparant {
-    0% {
-      opacity: 0;
-      
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  #check {
-    animation: transparant 2s ;
-  }
+#submitButton:hover{
+    color: var(--darkBlack);
+    background-color: var(--lightPink);
+    cursor: pointer;
+}
 
-  .formElement{
+/*ABOUT*/
+
+.about{
     width: 100%;
+    height: 100%;
+}
+
+.aboutGrid{
     display: flex;
     flex-direction: row;
-  }
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.aboutLeft img{
+    max-width: 300px;
+    margin-bottom: 50px;
+}
+
+.aboutLeft p{
+    color: var(--lightBlue);
+    font-family: var(--courier);
+    font-size: 1.5rem;
+    max-width: 350px;
+    margin-bottom: 30px;
+}
+
+.aboutLeft{
+    margin-bottom: 50px;
+}
+
+.aboutLeft a{
+    background-color: var(--lightPink);
+    border-radius: 10px;
+    color: var(--darkBlack);
+    text-decoration: none;
+    font-family: var(--courier);
+    padding: 10px;
+    max-width: 350px;
+}
+
+.aboutLeft a:hover{
+    font-weight: 700;
+    background-color: var(--lightYellow);
+}
+
+.aboutRightContent{
+    max-width: 400px;
+}
+
+/*CATEGORIES*/
+
+.categoriesHead{
+    width: 100%;
+    padding-left: 180px;
+}
+
+
+.categoryPosts{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.categoryPostContainer{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 80%;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    padding: 20px;
+}
+
+.categoryPostItem{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    width: 100%;
+}
+
+.categoryPostItem:hover{
+    background-color: var(--solidBlack);
+    cursor: pointer;
+}
+
+.categoryPostItem img{
+    max-width: 200px;
+    padding-right: 20px;
+}
+
+.line{
+    width: 100%;
+    background-color: var(--solidBlack);
+    height: 1px;
+    margin-top: 10px;
+}
+
+
+
+  
 
 
 
@@ -1371,7 +1410,19 @@ textarea:not(:placeholder-shown) {
     grid-gap: 10px;
     justify-content: center;
     align-content: center;
-}
+    }
+
+    .contact{
+        margin-top: 50px;
+    }
+
+    .contactContent{
+        width: 80%;
+    }
+
+    form{
+        width: 90%;
+    }
    
 }
 
@@ -1501,6 +1552,10 @@ textarea:not(:placeholder-shown) {
         align-content: center;
         width: fit-content;
         margin-bottom: 20px;
+    }
+
+    #contactForm{
+        width: 250px;
     }
     
 }
