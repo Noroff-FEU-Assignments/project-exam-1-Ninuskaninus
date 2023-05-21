@@ -20,74 +20,69 @@ menuButtonClose.addEventListener("click", () => {
 });
 
 getPosts().then(posts => {
-    
-    const postTitle = document.querySelector("title");
-    postTitle.textContent = `CodeCrush – ${posts[0].title}`;
-  
-    const selectedPost = posts.find(post => post.id === parseInt(location.search.split("=")[1]));
-    const blogheader = document.querySelector(".postHead");
-    blogheader.style.backgroundImage = `url(${selectedPost.image})`;
+  const postTitle = document.querySelector("title");
+  postTitle.textContent = `CodeCrush – ${posts[0].title}`;
 
-    const blogHeadContainer = document.createElement("div");
-    blogHeadContainer.classList.add("postHeadContent");
-    blogheader.appendChild(blogHeadContainer);
+  const selectedPost = posts.find(post => post.id === parseInt(location.search.split("=")[1]));
+  const blogheader = document.querySelector(".postHead");
+  blogheader.style.backgroundImage = `url(${selectedPost.image})`;
 
-    const author = document.createElement("p");
-    author.id = "blue";
-    author.textContent = `> Written by ${selectedPost.author}`;
-    blogHeadContainer.appendChild(author);
+  const blogHeadContainer = document.createElement("div");
+  blogHeadContainer.classList.add("postHeadContent");
+  blogheader.appendChild(blogHeadContainer);
 
-    const date = document.createElement("p");
-    date.id = "yellow";
-    date.textContent = `> Posted: ${selectedPost.date}`;
-    blogHeadContainer.appendChild(date);
+  const author = document.createElement("p");
+  author.id = "blue";
+  author.textContent = `> Written by ${selectedPost.author}`;
+  blogHeadContainer.appendChild(author);
 
-    const likes = document.createElement("p");
-    likes.id = "pink";
-    likes.textContent = `> Likes: 1500`;
-    blogHeadContainer.appendChild(likes);
+  const date = document.createElement("p");
+  date.id = "yellow";
+  date.textContent = `> Posted: ${selectedPost.date}`;
+  blogHeadContainer.appendChild(date);
 
-    const blogPost = document.querySelector(".blogPost");
-    const blogTitle = document.createElement("h1");
-    blogTitle.textContent = selectedPost.title;
-    blogPost.appendChild(blogTitle);
+  const likes = document.createElement("p");
+  likes.id = "green";
+  likes.textContent = `> Likes: 1500`;
+  blogHeadContainer.appendChild(likes);
 
-    const blogContent = document.createElement("div");
-    blogContent.classList.add("blogContent");
+  const categoryContainer = document.createElement("div");
+  categoryContainer.classList.add("categoryContainer");
+  blogHeadContainer.appendChild(categoryContainer);
 
-    const codeContent = selectedPost.content;
-    const highlightedContent = codeContent.replace(/(const|let|var)/g, '<span class="keyword">$1</span>');
+  const blogPost = document.querySelector(".blogPost");
+  const blogTitle = document.createElement("h1");
+  blogTitle.textContent = selectedPost.title;
+  blogPost.appendChild(blogTitle);
 
-    blogContent.innerHTML = selectedPost.content;
-    blogPost.appendChild(blogContent);
+  const blogContent = document.createElement("div");
+  blogContent.classList.add("blogContent");
 
-    const contentContainer = document.createElement('div');
-    contentContainer.innerHTML = selectedPost.content;
+  const codeContent = selectedPost.content;
+  const highlightedContent = codeContent.replace(/(const|let|var)/g, '<span class="keyword">$1</span>');
 
-    const htmlText = selectedPost.content;
-    const tempElement = document.createElement('div');
-    tempElement.innerHTML = htmlText;
-    
-    const postImages = tempElement.querySelectorAll('figure');
-    
-    postImages.forEach(figure => {
-      figure.addEventListener('click', () => {
-        console.log("Click!");
-      });
-      console.log('Figure:', figure);
+  blogContent.innerHTML = selectedPost.content;
+  blogPost.appendChild(blogContent);
+
+  const thumbnails = document.querySelectorAll(".thumbnail");
+  const close = document.querySelector(".close");
+
+  thumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener("click", () => {
+      thumbnail.classList.add("modal");
+      close.style.display = "block";
     });
-    
-    
-    
-    
-   
-    
-    
-      
+  });
 
+  close.addEventListener("click", () => {
+    thumbnails.forEach(thumbnail => {
+      thumbnail.classList.remove("modal");
+    });
+    close.style.display = "none";
+  });
 
-    
 });
+
 
 
 

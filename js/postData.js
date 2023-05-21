@@ -39,7 +39,6 @@ const getPosts = async () => {
     pageNumber++;
   }
 
-  console.log(allPosts);
   return allPosts;
 };
 
