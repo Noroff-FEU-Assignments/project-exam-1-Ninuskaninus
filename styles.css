@@ -1289,6 +1289,7 @@ textarea:not(:placeholder-shown) {
     background-color: var(--solidBlack);
     height: 1px;
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 
