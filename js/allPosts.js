@@ -45,14 +45,14 @@ getPosts().then(posts => {
 
  
 
-  let numPosts = 5;
+  let numPosts = 10;
 
   seeMoreBtn.addEventListener("click", () => {
-    if (numPosts === 5) {
-      numPosts += 10;
+    if (numPosts === 10) {
+      numPosts += 2;
       seeMoreBtn.textContent = "See Less";
     } else {
-      numPosts = 5;
+      numPosts = 10;
       seeMoreBtn.textContent = "See More";
     }
     renderPosts();
