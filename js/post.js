@@ -66,20 +66,34 @@ getPosts().then(posts => {
 
   const thumbnails = document.querySelectorAll(".thumbnail");
   const close = document.querySelector(".close");
-
+  const modal = document.querySelector(".modal");
+  
   thumbnails.forEach(thumbnail => {
     thumbnail.addEventListener("click", () => {
       thumbnail.classList.add("modal");
       close.style.display = "block";
     });
   });
-
+  
   close.addEventListener("click", () => {
+    closeModal();
+  });
+  
+  modal.addEventListener("click", (event) => {
+    if (!modal.contains(event.target)) {
+      closeModal();
+    }
+  });
+  
+  function closeModal() {
     thumbnails.forEach(thumbnail => {
       thumbnail.classList.remove("modal");
     });
     close.style.display = "none";
-  });
+  }
+  
+
+
 
 });
 
