@@ -1,10 +1,16 @@
 import { getPosts } from './postData.js';
 
+
+
 getPosts().then(posts => {
   const postsSection = document.querySelector(".categoryPosts");
   const postContainer = document.createElement("div");
   postContainer.classList.add("categoryPostContainer");
   postsSection.appendChild(postContainer);
+
+  const loader = document.querySelector(".loader");
+  loader.style.display = "flex";
+  postContainer.appendChild(loader);
 
   const urlParams = new URLSearchParams(window.location.search);
   const category = urlParams.get("category");
@@ -40,6 +46,8 @@ getPosts().then(posts => {
       const postTitle = document.createElement("h6");
       postTitle.textContent = post.title;
       postItem.appendChild(postTitle);
+
+      loader.style.display = "none";
     }
   }
 });

@@ -1,7 +1,5 @@
 import { getPosts } from "./postData.js";
 
-
-
 const menubutton = document.querySelector(".menuBtn");
 const menuToggle = document.querySelector(".postsNavHide");
 const menuButtonClose = document.querySelector(".postsNavHide button");
@@ -71,12 +69,13 @@ getPosts().then(posts => {
 
   const thumbnails = document.querySelectorAll(".thumbnail");
   const close = document.querySelector(".close");
-  const modal = document.querySelector(".modal");
-
+  const modalContent = document.querySelector(".modal-content");
+  
   thumbnails.forEach(thumbnail => {
     thumbnail.addEventListener("click", () => {
       thumbnail.classList.add("modal");
       close.style.display = "block";
+      modalContent.style.display = "block";
     });
   });
   
@@ -84,32 +83,19 @@ getPosts().then(posts => {
     thumbnails.forEach(thumbnail => {
       thumbnail.classList.remove("modal");
       close.style.display = "none";
+      modalContent.style.display = "none";
     });
-  }
-  );
+  });
 
-window.addEventListener("click", (event) => {
-  if (event.target === modal) {
+  modalContent.addEventListener("click", () => {
     thumbnails.forEach(thumbnail => {
       thumbnail.classList.remove("modal");
       close.style.display = "none";
+      modalContent.style.display = "none";
     });
-  }
-});
-
- 
-
-  
-
-
+  });
 
 });
-
-
-
-
-
-
 
 const likeButton = document.querySelector(".blogpostLike button img");
 let likeCount = 0;
