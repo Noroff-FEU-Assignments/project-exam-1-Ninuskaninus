@@ -1,5 +1,8 @@
 import { getPosts } from "./postData.js";
 
+const loader = document.querySelector(".loader");
+loader.style.display = "block";
+
 getPosts()
     .then(posts => {
     const featuredPost = posts.filter(post => post.tags.includes(9));
@@ -19,6 +22,8 @@ getPosts()
     featuredLink.textContent = 'Read more';
     featuredLink.href = `post.html?id=${featuredPost[0].id}`;
     indexHeroContent.appendChild(featuredLink);
+
+    loader.style.display = "none";
     });
 
     

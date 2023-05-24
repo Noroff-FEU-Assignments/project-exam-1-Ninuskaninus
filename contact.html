@@ -65,10 +65,11 @@
     </nav>
     <main>
         <section class="contact">
+            
             <div class="contactContent">
               <form id="contactForm" action="contact">
                 <h2>Contact us!</h2>
-                
+
                 <label for="name">Name</label>
                 <span id="nameError" class="error"></span>
                 <input type="text" id="name" name="name" placeholder="Your name..">
@@ -88,8 +89,10 @@
                 <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
                 
           
-                <input id="submitButton" type="submit" value="Submit">
-                
+                <button id="submitButton" type="button">Send message!</button>
+                <div class="succsessMessage">
+                    <h1>Message sendt!</h1>
+                </div> 
               </form>
             </div>
           </section>

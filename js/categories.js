@@ -1,37 +1,39 @@
 import { getPosts } from './postData.js';
 
 getPosts().then(posts => {
-    const postsSection = document.querySelector(".categoryPosts");
-    const postContainer = document.createElement("div");
-    postContainer.classList.add("categoryPostContainer");
-    postsSection.appendChild(postContainer);
+  const postsSection = document.querySelector(".categoryPosts");
+  const postContainer = document.createElement("div");
+  postContainer.classList.add("categoryPostContainer");
+  postsSection.appendChild(postContainer);
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const category = urlParams.get("category");
+  const urlParams = new URLSearchParams(window.location.search);
+  const category = urlParams.get("category");
 
-    const categoryHeader = document.querySelector(".categoriesHead");
-    const categoryHeaderTitle = document.createElement("h1");
-    categoryHeaderTitle.textContent = category;
-    categoryHeader.appendChild(categoryHeaderTitle);
+  const categoryHeader = document.querySelector(".categoriesHead");
+  const categoryHeaderTitle = document.createElement("h1");
+  categoryHeaderTitle.textContent = category;
+  categoryHeader.appendChild(categoryHeaderTitle);
 
-    for (let i = 0; i < posts.length; i++) {
-        const post = posts[i];
+  const filteredPosts = posts.filter(post => post.category === category);
 
-        const postItem = document.createElement("a");
-        postItem.href = `post.html?id=${post.id}`;
-        postItem.classList.add("categoryPostItem");
-        postContainer.appendChild(postItem);
+  for (let i = 0; i < filteredPosts.length; i++) {
+    const post = filteredPosts[i];
 
-        const postSpan = document.createElement("span");
-        postSpan.classList.add("line");
-        postContainer.appendChild(postSpan);
+    const postItem = document.createElement("a");
+    postItem.href = `post.html?id=${post.id}`;
+    postItem.classList.add("categoryPostItem");
+    postContainer.appendChild(postItem);
 
-        const postImg = document.createElement("img");
-        postImg.src = post.image;
-        postItem.appendChild(postImg);
+    const postSpan = document.createElement("span");
+    postSpan.classList.add("line");
+    postContainer.appendChild(postSpan);
 
-        const postTitle = document.createElement("h6");
-        postTitle.textContent = post.title;
-        postItem.appendChild(postTitle);
-    }
+    const postImg = document.createElement("img");
+    postImg.src = post.image;
+    postItem.appendChild(postImg);
+
+    const postTitle = document.createElement("h6");
+    postTitle.textContent = post.title;
+    postItem.appendChild(postTitle);
+  }
 });

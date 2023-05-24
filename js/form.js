@@ -1,17 +1,18 @@
-// Get form and input elements
 const form = document.getElementById('contactForm');
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
 const subjectInput = document.getElementById('subject');
 const messageInput = document.getElementById('message');
+const submitButton = document.getElementById('submitButton');
+const loader = document.querySelector(".loaderContent");
+const succsessMessage = document.querySelector(".succsessMessage");
 
-// Get error elements
 const nameError = document.getElementById('nameError');
 const emailError = document.getElementById('emailError');
 const subjectError = document.getElementById('subjectError');
 const messageError = document.getElementById('messageError');
 
-// Add event listener for keyup on form
+
 form.addEventListener('keyup', (event) => {
   const input = event.target;
 
@@ -67,3 +68,18 @@ function validateMessage() {
     messageError.style.display = 'none';
   }
 }
+
+submitButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  validateName();
+  validateEmail();
+  validateSubject();
+  validateMessage();
+  if (nameError.style.display === 'none' && emailError.style.display === 'none' && subjectError.style.display === 'none' && messageError.style.display === 'none') {
+    submitButton.style.display = 'none';
+    succsessMessage.style.display = 'flex';
+  }
+});
+
+
+

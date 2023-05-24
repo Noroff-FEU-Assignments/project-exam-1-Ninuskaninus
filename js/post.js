@@ -19,6 +19,9 @@ menuButtonClose.addEventListener("click", () => {
    menubutton.style.transition = "all 0.5s ease-in-out";
 });
 
+const loader = document.querySelector(".loader");
+loader.style.display = "block";
+
 getPosts().then(posts => {
   const postTitle = document.querySelector("title");
   postTitle.textContent = `CodeCrush – ${posts[0].title}`;
@@ -64,10 +67,12 @@ getPosts().then(posts => {
   blogContent.innerHTML = selectedPost.content;
   blogPost.appendChild(blogContent);
 
+  loader.style.display = "none";
+
   const thumbnails = document.querySelectorAll(".thumbnail");
   const close = document.querySelector(".close");
   const modal = document.querySelector(".modal");
-  
+
   thumbnails.forEach(thumbnail => {
     thumbnail.addEventListener("click", () => {
       thumbnail.classList.add("modal");
@@ -76,21 +81,24 @@ getPosts().then(posts => {
   });
   
   close.addEventListener("click", () => {
-    closeModal();
-  });
-  
-  modal.addEventListener("click", (event) => {
-    if (!modal.contains(event.target)) {
-      closeModal();
-    }
-  });
-  
-  function closeModal() {
     thumbnails.forEach(thumbnail => {
       thumbnail.classList.remove("modal");
+      close.style.display = "none";
     });
-    close.style.display = "none";
   }
+  );
+
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    thumbnails.forEach(thumbnail => {
+      thumbnail.classList.remove("modal");
+      close.style.display = "none";
+    });
+  }
+});
+
+ 
+
   
 
 
