@@ -18,17 +18,21 @@ getPosts().then(posts => {
     const btnLeft = document.createElement("button");
     btnLeft.id = "btnLeft";
     btnLeft.style.visibility = 'hidden';
+    btnLeft.alt = "arrow left";
+    btnLeft.name = "arrow left";
     const imgLeft = document.createElement("img");
     imgLeft.src = "images/arrow-left.png";
-    imgLeft.alt = "";
+    imgLeft.alt = "arrow left";
     btnLeft.appendChild(imgLeft);
     carouselBtnContainer.appendChild(btnLeft);
 
     const btnRight = document.createElement("button");
     btnRight.id = "btnRight";
+    btnRight.alt = "arrow right";
+    btnRight.name = "arrow right";
     const imgRight = document.createElement("img");
     imgRight.src = "images/arrow-right.png";
-    imgRight.alt = "";
+    imgRight.alt = "arrow right";
     btnRight.appendChild(imgRight);
     carouselBtnContainer.appendChild(btnRight);
 
