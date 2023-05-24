@@ -16,24 +16,30 @@ getPosts().then(posts => {
 
   const filteredPosts = posts.filter(post => post.category === category);
 
-  for (let i = 0; i < filteredPosts.length; i++) {
-    const post = filteredPosts[i];
+  if (filteredPosts.length === 0) {
+    const noPostsMessage = document.createElement("p");
+    noPostsMessage.textContent = "No posts in this category.";
+    postContainer.appendChild(noPostsMessage);
+  } else {
+    for (let i = 0; i < filteredPosts.length; i++) {
+      const post = filteredPosts[i];
 
-    const postItem = document.createElement("a");
-    postItem.href = `post.html?id=${post.id}`;
-    postItem.classList.add("categoryPostItem");
-    postContainer.appendChild(postItem);
+      const postItem = document.createElement("a");
+      postItem.href = `post.html?id=${post.id}`;
+      postItem.classList.add("categoryPostItem");
+      postContainer.appendChild(postItem);
 
-    const postSpan = document.createElement("span");
-    postSpan.classList.add("line");
-    postContainer.appendChild(postSpan);
+      const postSpan = document.createElement("span");
+      postSpan.classList.add("line");
+      postContainer.appendChild(postSpan);
 
-    const postImg = document.createElement("img");
-    postImg.src = post.image;
-    postItem.appendChild(postImg);
+      const postImg = document.createElement("img");
+      postImg.src = post.image;
+      postItem.appendChild(postImg);
 
-    const postTitle = document.createElement("h6");
-    postTitle.textContent = post.title;
-    postItem.appendChild(postTitle);
+      const postTitle = document.createElement("h6");
+      postTitle.textContent = post.title;
+      postItem.appendChild(postTitle);
+    }
   }
 });

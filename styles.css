@@ -1645,11 +1645,7 @@ textarea:not(:placeholder-shown) {
         margin-top: 50px;
     }
 
-    .categoryItems{
-        display: grid;
-        grid-template-columns: auto auto;
-        justify-content: center;
-    }
+
 
     .categoryItems a{
         margin: 5px;
