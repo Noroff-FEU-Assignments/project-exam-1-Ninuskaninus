@@ -21,6 +21,8 @@ getPosts().then(posts => {
   categoryHeader.appendChild(categoryHeaderTitle);
 
   const filteredPosts = posts.filter(post => post.category === category);
+  const categoryTitle = document.querySelector("title");
+  categoryTitle.textContent = `CodeCrush – ${category}`;
 
   if (filteredPosts.length === 0) {
     const noPostsMessage = document.createElement("p");
